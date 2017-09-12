@@ -1,0 +1,42 @@
+{% block content %}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $('#clickme').click(function () {
+                event.preventDefault();
+                console.log("hello")
+                $("#loading").show();
+                $("#content").hide();
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url_for('check_status') }}",
+//                    data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (result) {
+                        document.location = "{{ url_for('hello') }}"
+                    }
+                });
+            });
+        });
+// ]]></script>
+    <style>
+        div#loading {
+    width: 35px;
+    height: 35px;
+    display: none;
+    background: url(ajax-loader.gif) no-repeat;
+    cursor: wait;
+    }
+    </style>
+</head>
+<body>
+    <div id="loading">LOADING</div>
+    <div id="content"><a href="#" id="clickme" name="clickme">test</a></div>
+{{ done }}
+</body>
+
+{% endblock %}

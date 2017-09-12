@@ -1,0 +1,50 @@
+# -- LIMS integration
+# nglims integration requires a Galaxy server containing
+# information about samples on each flowcell.
+starlims_url: http://10.182.155.37/StarLimsWeb.asmx?WSDL
+
+# -- Machine directories
+# Directoryies where Illumina puts finished flowcells
+dump_directories:
+  - /mnt/hiseq_e/runs/1504919
+# Pointer to a plain text file which will be used to keep track of 
+# directories that have already been transferred.
+msg_db: /sdgs/logs/transferred.db
+# Logging output for preparation and transfer steps
+log_dir: /sdgs/logs/transfer_log
+
+# -- Post-processing
+# Cores to use for processing bcl to bgzipped fastq files
+algorithm:
+  num_cores: 1
+# General options for post-processing:
+#    dir -- directory for processing/transfer
+#    storedir -- Base directory for long term storage. Needs to connect with Galaxy
+#                data libraries.
+#
+
+process:
+  dir: /sdgs/incoming/
+  storedir: /sdgs/incoming/fastq
+  submit_cmd: "qsub {batch_script}"
+  bcl2fastq_batch: |
+    #!/bin/bash -e
+    #$ -q sdgs_clinical_ngs
+    #$ -V
+    #$ -N bcl2fastq
+    cd {output_dir}
+    echo `pwd` > /home/bioinfo/mparker/loc
+    function checkpoint_err () {{
+      touch {batch_script}.failed
+    }}
+    trap checkpoint_err ERR
+    {bcl2fastq_cmd}
+    trap - ERR
+    touch {batch_script}.finished
+  bcbio_batch: |
+    #!/bin/bash -e
+    #$ -q sdgs_clinical_ngs
+    #$ -V
+    #$ -N bcl2fastq
+    cd $PBS_O_WORKDIR
+    bcbio_nextgen.py {fcdir} {run_config} -t ipython -s sge -q sdgs_nextgen_clinical -n 48

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bioinformatics Quarterly Git Issues Report</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Sheffield Children's NHS Foundation Trust</td>
+        <td><strong>Department:</strong> Sheffield Diagnostics Genetics Service</td>
+    </tr>
+    <tr>
+        <td><strong>Title:</strong> Bioinformatics Issue Quarterly Report</td>
+        <td><strong>Document reference number:</strong> XXX.XXX</td>
+    </tr>
+</table>
+
+<h1>SDGSPipeline Quarterly Bug Report: {{ today }}</h1>
+
+<p>This document is intended to help track trends in the amount of bugs reported by the bioinformatics team for the NGS pipeline.
+    Bugs are recorded and unless urgent are fixed on the next pipeline release.
+</p>
+
+<p>Urgent bugs are those which are directly blocking patients being processed through the NGS pipeline and in general are resolved ASAP.  On the graph below Urgent bugs are those that have been closed.</p>
+
+<img src= "http://10.182.131.21{{ img }}">
+
+<h1> Closed Bugs</h1>
+
+<p>Bugs which are now closed, this means that the bug has been resolved.</p>
+
+<h2> Urgent Bugs </h2>
+
+<center>
+<img src= "http://10.182.131.21{{ closed_user_urgent }}">
+</center>
+
+{{ urgent_issues }}
+
+<p>{{ urgent_explanation }}</p>
+
+<h2> Non-Urgent Bugs </h2>
+<center>
+<img src= "http://10.182.131.21{{ closed_user }}">
+</center>
+{{ issues }}
+
+<h1> Open Bugs</h1>
+
+<p>Bugs which are still open and in the process of being resolved.</p>
+
+<h2> Urgent Bugs </h2>
+<center>
+<img src= "http://10.182.131.21{{ urgent_open_user }}">
+</center>
+{{ open_urgent }}
+
+<h2> Non-Urgent Bugs </h2>
+<center>
+<img src= "http://10.182.131.21{{ open_user }}">
+</center>
+
+{{ open_issues }}
+
+</body>
+</html>

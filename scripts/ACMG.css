@@ -1,0 +1,17 @@
+.classification {
+    color: #F4F4F4;
+    margin-top:15px;margin-bottom:15px
+}
+
+.btn-purple{color:#fff;background-color: #6f2bb7;border-color: #4d2387
+}  .btn-purple.focus,.btn-purple:focus{color:#fff;background-color: #4d2387;border-color:#122b40}  .btn-purple:hover{color:#fff;background-color: #562791;border-color:#204d74}  .btn-purple.active,.btn-purple:active,.open>.dropdown-toggle.btn-purple{color:#fff;background-color:#286090;border-color:#204d74}  .btn-purple.active.focus,.btn-purple.active:focus,.btn-purple.active:hover,.btn-purple:active.focus,.btn-purple:active:focus,.btn-purple:active:hover,.open>.dropdown-toggle.btn-purple.focus,.open>.dropdown-toggle.btn-purple:focus,.open>.dropdown-toggle.btn-purple:hover{color:#fff;background-color:#204d74;border-color:#122b40}  .btn-purple.active,.btn-purple:active,.open>.dropdown-toggle.btn-purple{background-image:none}  .btn-purple.disabled.focus,.btn-purple.disabled:focus,.btn-purple.disabled:hover,.btn-purple[disabled].focus,.btn-purple[disabled]:focus,.btn-purple[disabled]:hover,fieldset[disabled] .btn-purple.focus,fieldset[disabled] .btn-purple:focus,fieldset[disabled] .btn-purple:hover{background-color:#337ab7;border-color:#2e6da4}  .btn-purple .badge{color:#337ab7;background-color:#fff}
+
+.panel-purple{border-color: #562791
+}  .panel-purple>.panel-heading{color:#fff;background-color: #562791;border-color: #562791
+   }  .panel-purple>.panel-heading+.panel-collapse>.panel-body{border-top-color: #562791
+      }  .panel-purple>.panel-heading .badge{color: #562791;background-color:#fff}  .panel-purple>.panel-footer+.panel-collapse>.panel-body{border-bottom-color: #562791
+                                                                                     }
+
+th, td {
+    padding: 5px;
+}
